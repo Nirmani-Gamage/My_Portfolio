@@ -63,8 +63,8 @@ export default function Navbar() {
                 <a 
                   href={link.href}
                   className={cn(
-                    "text-sm font-medium transition-colors hover:text-accent",
-                    activeSection === link.name.toLowerCase() ? "text-accent" : "text-foreground/70"
+                    "text-sm font-medium transition-all px-3 py-1.5 rounded-full",
+                    activeSection === link.name.toLowerCase() ? "bg-secondary text-foreground" : "text-foreground/60 hover:text-foreground hover:bg-secondary/50"
                   )}
                 >
                   {link.name}

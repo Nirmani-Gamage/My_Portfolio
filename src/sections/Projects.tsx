@@ -52,7 +52,7 @@ function ProjectModal({ project, isOpen, onClose }: { project: any, isOpen: bool
                 </p>
                 
                 <div className="flex flex-wrap gap-3 mt-auto">
-                  {project.githubUrl && (
+                  {project.githubUrl ? (
                     <a 
                       href={project.githubUrl} 
                       target="_blank" 
@@ -62,8 +62,13 @@ function ProjectModal({ project, isOpen, onClose }: { project: any, isOpen: bool
                       <FaGithub size={16} />
                       Source Code
                     </a>
+                  ) : (
+                    <span className="flex items-center gap-2 px-4 py-2 bg-secondary/50 text-foreground/40 rounded-lg font-medium cursor-not-allowed text-sm border border-border/50">
+                      <FaGithub size={16} />
+                      Source Code (Private)
+                    </span>
                   )}
-                  {project.liveUrl && (
+                  {project.liveUrl ? (
                     <a 
                       href={project.liveUrl} 
                       target="_blank" 
@@ -73,6 +78,11 @@ function ProjectModal({ project, isOpen, onClose }: { project: any, isOpen: bool
                       <ExternalLink size={16} />
                       Live Demo
                     </a>
+                  ) : (
+                    <span className="flex items-center gap-2 px-4 py-2 bg-foreground/20 text-foreground/40 rounded-lg font-medium cursor-not-allowed text-sm border border-border/50">
+                      <ExternalLink size={16} />
+                      Demo Unavailable
+                    </span>
                   )}
                 </div>
               </div>
@@ -141,7 +151,7 @@ export default function Projects() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               onClick={() => setSelectedProject(project)}
-              className="group cursor-pointer rounded-2xl bg-background border border-border overflow-hidden hover:border-accent/50 transition-all shadow-sm hover:shadow-md flex flex-col"
+              className="group cursor-pointer rounded-2xl bg-background border border-border overflow-hidden hover:border-accent hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col"
             >
               <div className="relative aspect-[16/9] overflow-hidden bg-secondary">
                 <img 
@@ -190,7 +200,7 @@ export default function Projects() {
                   <span className="text-sm font-medium text-foreground/60 group-hover:text-foreground transition-colors">
                     View Details
                   </span>
-                  <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-colors">
+                  <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-colors group-hover:translate-x-1 duration-300">
                     <ExternalLink size={14} className={project.status === "building" ? "text-foreground/50 group-hover:text-white" : ""} />
                   </div>
                 </div>

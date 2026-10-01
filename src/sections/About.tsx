@@ -1,79 +1,54 @@
 import { motion } from 'framer-motion';
+import { CheckCircle2 } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading';
-import { aboutCards } from '../data/portfolio';
 
 export default function About() {
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 }
-  };
+  const focuses = [
+    "Full-stack development",
+    "AI-powered applications",
+    "Real-time systems",
+    "DevOps & cloud",
+    "Team-based software projects"
+  ];
 
   return (
     <section id="about" className="py-24 bg-secondary/30 relative">
       <div className="container mx-auto px-6 md:px-12">
         <SectionHeading 
           title="A little about me" 
-          subtitle="Passionate about building full-stack applications and solving real-world problems."
         />
         
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 items-start mt-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="prose prose-lg dark:prose-invert"
           >
-            <p className="text-foreground/80 leading-relaxed">
-              I am currently an Information Technology undergraduate at the University of Moratuwa. 
-              My journey in software engineering has been driven by a deep curiosity about how systems 
-              work and a desire to build applications that genuinely make an impact.
-            </p>
-            <p className="text-foreground/80 leading-relaxed mt-4">
-              I specialize in full-stack development, but I am continuously expanding my horizons. 
-              Lately, I've been exploring AI-powered features that enhance user experiences, as well as 
-              diving into DevOps and cloud technologies to understand how scalable software is deployed and maintained.
-            </p>
-            <p className="text-foreground/80 leading-relaxed mt-4">
-              I thrive in environments where I can learn continuously and solve complex problems logically. 
-              I am actively seeking internship opportunities where I can contribute to meaningful projects 
-              while honing my skills alongside experienced professionals.
+            <p className="text-foreground/80 text-lg leading-relaxed md:text-xl md:leading-relaxed font-medium">
+              I'm an Information Technology undergraduate at the University of Moratuwa with a growing focus on software engineering and full-stack development. I enjoy turning ideas into working applications and exploring how modern technologies can solve practical problems.
             </p>
           </motion.div>
 
           <motion.div 
-            variants={container}
-            initial="hidden"
-            whileInView="show"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="grid sm:grid-cols-2 gap-4"
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="bg-background border border-border rounded-2xl p-8 shadow-sm"
           >
-            {aboutCards.map((card, index) => {
-              const Icon = card.icon;
-              return (
-                <motion.div 
-                  key={index}
-                  variants={item}
-                  className="p-6 rounded-2xl bg-background border border-border hover:border-accent/50 transition-colors shadow-sm group"
-                >
-                  <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4 group-hover:bg-accent/10 transition-colors">
-                    <Icon className="text-foreground/70 group-hover:text-accent transition-colors" size={24} />
-                  </div>
-                  <h3 className="font-semibold text-foreground mb-1">{card.title}</h3>
-                  <p className="text-sm text-foreground/60">{card.description}</p>
-                </motion.div>
-              );
-            })}
+            <h3 className="text-lg font-semibold text-foreground mb-6 flex items-center gap-2">
+              <span className="w-1.5 h-6 bg-accent rounded-full block"></span>
+              Current Focus Areas
+            </h3>
+            <ul className="space-y-4">
+              {focuses.map((item, idx) => (
+                <li key={idx} className="flex items-center gap-3 text-foreground/80 font-medium">
+                  <CheckCircle2 size={20} className="text-accent" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </motion.div>
         </div>
       </div>

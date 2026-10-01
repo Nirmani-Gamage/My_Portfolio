@@ -1,4 +1,7 @@
 import { Code, BookOpen, Layers, Cloud } from 'lucide-react';
+import studypulseImg from '../assets/projects/studypulse-dashboard.svg';
+import edupathImg from '../assets/projects/edupath-dashboard.svg';
+import cloudImg from '../assets/projects/2048-cloud.svg';
 
 export const personalInfo = {
   name: "Nirmani Gamage",
@@ -61,9 +64,9 @@ export const projects = [
       "Learning insights",
       "Authentication"
     ],
-    githubUrl: "https://github.com/Nirmani-Gamage/placeholder-studypulse",
-    liveUrl: "https://studypulse-demo.placeholder.com",
-    image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=1000",
+    githubUrl: "",
+    liveUrl: "",
+    image: studypulseImg,
     status: "completed"
   },
   {
@@ -82,9 +85,9 @@ export const projects = [
       "Role-based functionality"
     ],
     note: "University of Moratuwa Team Project",
-    githubUrl: "https://github.com/Nirmani-Gamage/placeholder-edupath",
-    liveUrl: "https://edupath-demo.placeholder.com",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1000",
+    githubUrl: "",
+    liveUrl: "",
+    image: edupathImg,
     status: "completed"
   },
   {
@@ -100,8 +103,8 @@ export const projects = [
       "CI/CD",
       "Linux environment"
     ],
-    githubUrl: "https://github.com/Nirmani-Gamage/placeholder-2048",
-    image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&q=80&w=1000",
+    githubUrl: "",
+    image: cloudImg,
     status: "building"
   }
 ];
